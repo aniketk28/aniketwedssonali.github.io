@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+    <title>Aniket Weds Sonali</title>
+    <style>
+        body {
+            background-image: url('background.png');
+        }
+
+        .fontText {
+            font-family: "Fredoka", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 500;
+            font-style: normal;
+            font-size: 47px;
+            font-variation-settings:
+                "wdth" 100;
+        }
+
+        .location-font {
+            font-family: "Fredoka", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 30px;
+            margin-top: -12px;
+        }
+
+        .flex-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .flex-container>div {
+            text-align: center;
+        }
+
+        .time-container {
+            font-family: "Fredoka", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 500;
+            font-style: normal;
+            font-size: 47px;
+            font-variation-settings:
+                "wdth" 100;
+            width: 100px;
+            margin-right: 20px;
+            margin-left: 20px;
+            font-size: 30px;
+        }
+
+        .timer-font {
+            font-size: 75px;
+        }
+
+        .box {
+            position: relative;
+        }
+
+        .bet_time {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            font-family: "Fredoka", sans-serif;
+            font-weight: 400;
+        }
+    </style>
+    <script>
+        setInterval(() => {
+            let targetDate = new Date(2024, 2, 16, 12, 47)
+            let currentdate = new Date();
+            let miliseconds = targetDate.getTime() - currentdate.getTime();
+            let days, hours, minutes, seconds, total_hours, total_minutes, total_seconds;
+
+            if (miliseconds === 0) return 0;
+            total_seconds = parseInt(Math.floor(miliseconds / 1000).toString());
+            total_minutes = parseInt(Math.floor(total_seconds / 60).toString());
+            total_hours = parseInt(Math.floor(total_minutes / 60).toString());
+            days = parseInt(Math.floor(total_hours / 24).toString());
+
+            seconds = parseInt((total_seconds % 60).toString());
+            minutes = parseInt((total_minutes % 60).toString());
+            hours = parseInt((total_hours % 24).toString());
+            document.getElementById('daysRemaining').innerHTML = days;
+            document.getElementById('hoursRemaining').innerHTML = hours;
+            document.getElementById('minutesRemaining').innerHTML = minutes;
+            document.getElementById('secondsRemaining').innerHTML = seconds;
+        }, 1000);
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <img src="wedding_invitation.png" style="width:100%" />
+    </div>
+    <div class="flex-container">
+        <p class="fontText">TIME REMAINING</p>
+    </div>
+    <div class="flex-container">
+        <div class="time-container">
+            <p id="daysRemaining" class="timer-font"></p>
+            <p>Days</p>
+        </div>
+        <div class="time-container">
+            <p id="hoursRemaining" class="timer-font"></p>
+            <p>Hours</p>
+        </div>
+        <div class="time-container">
+            <p id="minutesRemaining" class="timer-font"></p>
+            <p>Minutes</p>
+        </div>
+        <div class="time-container">
+            <p id="secondsRemaining" class="timer-font"></p>
+            <p>Seconds</p>
+        </div>
+    </div>
+    <div class="container">
+        <img src="wedding_timeline.png" style="width:100%" />
+    </div>
+
+    <div class="flex-container">
+        <p class="fontText">Location</p>
+    </div>
+    <div class="flex-container" style="margin-top: -65px;">
+        <div>
+            <img src="heritagewadi_logo.png" width="300">
+            <p class="location-font">Kas road, Atali, Satara</p>
+        </div>
+    </div>
+    <div class="flex-container" style="margin-top: 20px; margin-bottom: 80px;">
+        <div class="mapouter" style="border:8px solid #FDFAF1">
+            <div class="gmap_canvas"><iframe width="600" height="350" id="gmap_canvas"
+                    src="https://maps.google.com/maps?q=heritagewadi&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                    frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a
+                    href="https://timenowin.net/">online
+                    clock</a><br><a href="https://www.analarmclock.com/"></a><br>
+                <style>
+                    .mapouter {
+                        position: relative;
+                        text-align: right;
+                        height: 350px;
+                        width: 600px;
+                    }
+                </style><a href="https://www.mapembed.net">create map in google</a>
+                <style>
+                    .gmap_canvas {
+                        overflow: hidden;
+                        background: none !important;
+                        height: 350px;
+                        width: 600px;
+                    }
+                </style>
+            </div>
+        </div>
+    </div>
+    <div class="box">
+        <!-- stuff -->
+        <p class="bet_time">Designed and developed by Sonali & Aniket</p>
+    </div>
+
+</body>
+
+</html>
